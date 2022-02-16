@@ -1,3 +1,6 @@
+# Tommy Kong
+# 9081632904
+# kong42@wisc.edu
 CC = g++
 CFLAGS = -O -g -Wall
 
