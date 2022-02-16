@@ -1,3 +1,10 @@
+// 
+// This is the source file of the Math Library
+// Tommy Kong
+// 9081632904
+// kong42@wisc.edu
+//
+
 #include "MathLib.h"
 
 int absVal(int input)
@@ -58,7 +65,10 @@ long round(double input, RoundingRule rule)
 		{
 			def = ceiling(input);
 		}
-		def = floor(input);
+		else
+		{
+			def = floor(input);
+		}
 	}
 	else
 	{
@@ -66,7 +76,10 @@ long round(double input, RoundingRule rule)
 		{
 			def = ceiling(input);
 		}
-		def = floor(input);
+		else
+		{
+			def = floor(input);
+		}
 	}
 
 	switch (rule)
@@ -147,10 +160,13 @@ long round(double input, RoundingRule rule)
 double pow(double base, long power)
 {
 	double ret = 1;
-	for (long i = 0; i < power; i++)
+	long exp = absVal(power);
+	for (long i = 0; i < exp; i++)
 	{
 		ret *= base;
 	}
+	if (power < 0)
+		ret = 1 / ret;
 	return ret;
 }
 
@@ -174,8 +190,13 @@ std::string toString(int num, unsigned int radix, bool low_case)
 		if (remainder >= 10)
 		{
 			if (low_case)
+			{
 				char_val = (char)((remainder - 10) + 'a');
-			char_val = (char)((remainder - 10) + 'A');
+			}
+			else
+			{
+				char_val = (char)((remainder - 10) + 'A');
+			}
 		}
 		else
 		{
